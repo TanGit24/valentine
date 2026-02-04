@@ -118,8 +118,8 @@
 
 <body>
 
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_946c4bfae6.mp3" type="audio/mpeg">
+<audio id="music" loop preload="auto">
+  <source src="bridgerton.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card" id="card">
@@ -169,16 +169,16 @@
   noBtn.addEventListener("mouseover", moveNo);
   noBtn.addEventListener("touchstart", moveNo);
 
-  yesBtn.addEventListener("click", () => {
-    response.style.display = "block";
-    music.play();
-    launchConfetti();
+yesBtn.addEventListener("click", () => {
+  response.style.display = "block";
+  music.play().catch(() => {});
+  launchConfetti();
 
-    setTimeout(() => {
-      card.style.display = "none";
-      finalScreen.style.display = "block";
-    }, 2000);
-  });
+  setTimeout(() => {
+    card.style.display = "none";
+    finalScreen.style.display = "block";
+  }, 2000);
+});
 
   setInterval(() => {
     const heart = document.createElement("div");
@@ -207,5 +207,6 @@
 
 </body>
 </html>
+
 
 
